@@ -7,6 +7,7 @@ import com.fiap.hackathon.repositories.ClientRepository;
 import com.fiap.hackathon.services.exceptions.DatabaseException;
 import com.fiap.hackathon.services.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -77,5 +78,6 @@ public class ClientService {
     }
 
     private void copyDtoToEntity(ClientDTO dto, Client client){
+        BeanUtils.copyProperties(client, dto);
     }
 }

@@ -6,6 +6,7 @@ import com.fiap.hackathon.entities.Room;
 import com.fiap.hackathon.repositories.RoomRepository;
 import com.fiap.hackathon.services.exceptions.DatabaseException;
 import com.fiap.hackathon.services.exceptions.ResourceNotFoundException;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -78,5 +79,6 @@ public class RoomService {
     }
 
     private void copyDtoToEntity(RoomDTO dto, Room room){
+        BeanUtils.copyProperties(room, dto);
     }
 }

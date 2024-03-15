@@ -6,6 +6,7 @@ import com.fiap.hackathon.repositories.ServicesRepository;
 import com.fiap.hackathon.services.exceptions.DatabaseException;
 import com.fiap.hackathon.services.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -75,6 +76,7 @@ public class ServicesService {
         }
     }
 
-    private void copyDtoToEntity(ServicesDTO dto, Services room){
+    private void copyDtoToEntity(ServicesDTO dto, Services services){
+        BeanUtils.copyProperties(services, dto);
     }
 }
