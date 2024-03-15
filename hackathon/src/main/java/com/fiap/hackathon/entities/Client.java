@@ -20,7 +20,7 @@ public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idLocation;
+    private Long idClient;
 
     private String country;
 

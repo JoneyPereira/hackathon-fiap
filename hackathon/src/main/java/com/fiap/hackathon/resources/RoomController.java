@@ -11,7 +11,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/products")
+@RequestMapping(value = "/rooms")
 public class RoomController {
     @Autowired
     private RoomService roomService;
