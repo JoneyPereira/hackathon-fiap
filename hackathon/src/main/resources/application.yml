@@ -23,6 +23,7 @@ spring:
           lob:
             non_contextual_creation: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
+    defer-datasource-initialization: true
 server:
   port: ${SPRING_SERVER_PORT}
