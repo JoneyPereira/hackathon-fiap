@@ -1,0 +1,11 @@
+version: "3"
+services:
+  postgres:
+    image: 'postgres:latest'
+    container_name: 'hackathon-db'
+    environment:
+      - 'POSTGRES_DB=my_database'
+      - 'POSTGRES_PASSWORD=admin'
+      - 'POSTGRES_USER=admin'
+    ports:
+      - '5432:5432'
