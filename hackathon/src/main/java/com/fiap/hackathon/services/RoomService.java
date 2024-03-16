@@ -28,7 +28,7 @@ public class RoomService {
 
     @Transactional(readOnly = true)
     public List<RoomDTO> findAll() {
-        List<Room> listProcuts = roomRepository.findAllByOrderByNameAsc();
+        List<Room> listProcuts = roomRepository.findAll();
         return listProcuts.stream().map(RoomDTO::new).collect(Collectors.toList());
     }
 
@@ -79,6 +79,6 @@ public class RoomService {
     }
 
     private void copyDtoToEntity(RoomDTO dto, Room room){
-        BeanUtils.copyProperties(room, dto);
+        BeanUtils.copyProperties(dto, room);
     }
 }
