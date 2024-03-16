@@ -26,7 +26,7 @@ public class ServicesService {
 
     @Transactional(readOnly = true)
     public List<ServicesDTO> findAll() {
-        List<Services> listServices = servicesRepository.findAllByOrderByNameAsc();
+        List<Services> listServices = servicesRepository.findAll();
         return listServices.stream().map(ServicesDTO::new).collect(Collectors.toList());
     }
 
@@ -77,6 +77,6 @@ public class ServicesService {
     }
 
     private void copyDtoToEntity(ServicesDTO dto, Services services){
-        BeanUtils.copyProperties(services, dto);
+        BeanUtils.copyProperties(dto, services);
     }
 }
