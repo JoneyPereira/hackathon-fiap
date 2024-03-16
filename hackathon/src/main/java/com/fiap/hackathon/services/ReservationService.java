@@ -26,7 +26,7 @@ public class ReservationService {
 
     @Transactional(readOnly = true)
     public List<ReservationDTO> findAll() {
-        List<Reservation> listReservation = reservationRepository.findAllByOrderByNameAsc();
+        List<Reservation> listReservation = reservationRepository.findAll();
         return listReservation.stream().map(ReservationDTO::new).collect(Collectors.toList());
     }
 
@@ -77,6 +77,6 @@ public class ReservationService {
     }
 
     private void copyDtoToEntity(ReservationDTO dto, Reservation reservation){
-        BeanUtils.copyProperties(reservation, dto);
+        BeanUtils.copyProperties(dto, reservation);
     }
 }
